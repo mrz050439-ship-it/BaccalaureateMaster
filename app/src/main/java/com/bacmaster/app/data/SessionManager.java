@@ -112,5 +112,15 @@ public class SessionManager {
     public String lastLessonTitle() { return prefs.getString("last_lesson_title", ""); }
     public String lastLessonSubject() { return prefs.getString("last_lesson_subject", ""); }
     public String lastLessonContent() { return prefs.getString("last_lesson_content", ""); }
-    public int lastLessonColor() { return prefs.getInt("last_lesson_color", 0xFF4338CA); }
+    public int lastLessonColor() { return prefs.getInt("last_lesson_color", 0xFF0E7C61); }
+
+    // ---- Preferred track (picked once in onboarding, changeable from home) ----
+
+    public String preferredTrackId() {
+        return prefs.getString("preferred_track", "");
+    }
+
+    public void setPreferredTrack(String trackId) {
+        prefs.edit().putString("preferred_track", trackId).apply();
+    }
 }

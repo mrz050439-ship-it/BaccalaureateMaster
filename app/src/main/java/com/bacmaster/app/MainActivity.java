@@ -10,8 +10,12 @@ import android.widget.TextView;
 
 import com.bacmaster.app.data.CurriculumData;
 import com.bacmaster.app.data.SessionManager;
+import com.bacmaster.app.model.Models.Lesson;
+import com.bacmaster.app.model.Models.Subject;
 import com.bacmaster.app.model.Models.Track;
+import com.bacmaster.app.model.Models.Unit;
 import com.bacmaster.app.ui.Fonts;
+import com.bacmaster.app.ui.ProgressRingView;
 
 public class MainActivity extends Activity {
 
@@ -32,6 +36,15 @@ public class MainActivity extends Activity {
         buildTrackGrid();
         renderContinueCard();
         renderStats();
+        renderTrackChip();
+        renderMySubjects();
+
+        findViewById(R.id.btnSwitchTrack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, OnboardingActivity.class));
+            }
+        });
 
         findViewById(R.id.bannerAbout).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +82,8 @@ public class MainActivity extends Activity {
         if (findViewById(android.R.id.content) != null) {
             renderContinueCard();
             renderStats();
+            renderTrackChip();
+            renderMySubjects();
         }
     }
 
@@ -174,6 +189,116 @@ public class MainActivity extends Activity {
             row.addView(card, cardLp);
             i++;
         }
+    }
+
+    private void renderTrackChip() {
+        SessionManager session = SessionManager.get(this);
+        TextView chip = findViewById(R.id.btnSwitchTrack);
+        Track track = CurriculumData.getTrack(session.preferredTrackId());
+        chip.setText(track == null
+                ? "🎯 اختار مسارك في البكالوريا"
+                : "🎯 مساري: " + track.name + " — تغيير");
+    }
+
+    /** Subjects of the student's chosen track (grade 2) with progress rings. */
+    private void renderMySubjects() {
+        SessionManager session = SessionManager.get(this);
+        Track track = CurriculumData.getTrack(session.preferredTrackId());
+        View header = findViewById(R.id.tvMySubjectsHeader);
+        LinearLayout container = findViewById(R.id.layoutMySubjects);
+        if (track == null) {
+            header.setVisibility(View.GONE);
+            container.setVisibility(View.GONE);
+            return;
+        }
+        header.setVisibility(View.VISIBLE);
+        container.setVisibility(View.VISIBLE);
+        container.removeAllViews();
+        boolean any = false;
+        for (final Subject subject : CurriculumData.getSubjects(track.id, CurriculumData.G2)) {
+            int total = 0;
+            int done = 0;
+            for (Unit unit : CurriculumData.getUnits(subject.id, CurriculumData.G2)) {
+                for (Lesson lesson : unit.lessons) {
+                    if (!lesson.hasContent()) continue;
+                    total++;
+                    if (session.isLessonDone(lesson.id)) done++;
+                }
+            }
+
+            LinearLayout row = new LinearLayout(this);
+            row.setOrientation(LinearLayout.HORIZONTAL);
+            row.setGravity(android.view.Gravity.CENTER_VERTICAL);
+            row.setPadding(dp(14), dp(12), dp(14), dp(12));
+            row.setBackgroundResource(R.drawable.card_white);
+            row.setClickable(true);
+
+            ProgressRingView ring = new ProgressRingView(this);
+            ring.setProgress(total == 0 ? 0f : done / (float) total, subject.color);
+            row.addView(ring, new LinearLayout.LayoutParams(dp(54), dp(54)));
+
+            LinearLayout texts = new LinearLayout(this);
+            texts.setOrientation(LinearLayout.VERTICAL);
+            LinearLayout.LayoutParams textsLp = new LinearLayout.LayoutParams(0,
+                    LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+            textsLp.setMarginStart(dp(12));
+
+            TextView name = new TextView(this);
+            name.setText(subject.emoji + " " + subject.name);
+            name.setTextSize(15);
+            name.setTypeface(null, android.graphics.Typeface.BOLD);
+            name.setTextColor(getResources().getColor(R.color.text));
+            texts.addView(name);
+
+            TextView meta = new TextView(this);
+            meta.setText(total == 0
+                    ? "⏳ المحتوى يُضاف تباعًا من كتاب الوزارة"
+                    : done + " من " + total + " درسًا مكتملًا");
+            meta.setTextSize(12);
+            meta.setTextColor(getResources().getColor(
+                    total == 0 ? R.color.text_secondary : R.color.success));
+            LinearLayout.LayoutParams metaLp = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            metaLp.topMargin = dp(3);
+            texts.addView(meta, metaLp);
+            row.addView(texts, textsLp);
+
+            TextView arrow = new TextView(this);
+            arrow.setText("‹");
+            arrow.setTextSize(22);
+            arrow.setTypeface(null, android.graphics.Typeface.BOLD);
+            arrow.setTextColor(getResources().getColor(R.color.text_secondary));
+            row.addView(arrow);
+
+            final String trackId = track.id;
+            row.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, CourseActivity.class);
+                    intent.putExtra(CourseActivity.EXTRA_TRACK_ID, trackId);
+                    intent.putExtra(CourseActivity.EXTRA_YEAR_ID, CurriculumData.G2);
+                    intent.putExtra(CourseActivity.EXTRA_SUBJECT_ID, subject.id);
+                    intent.putExtra(CourseActivity.EXTRA_SUBJECT_NAME, subject.name);
+                    intent.putExtra(CourseActivity.EXTRA_SUBJECT_COLOR, subject.color);
+                    intent.putExtra(CourseActivity.EXTRA_SUBJECT_EMOJI, subject.emoji);
+                    startActivity(intent);
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                }
+            });
+
+            LinearLayout.LayoutParams rowLp = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            rowLp.setMargins(0, 0, 0, dp(10));
+            container.addView(row, rowLp);
+
+            row.setAlpha(0f);
+            row.setTranslationY(dp(14));
+            row.animate().alpha(1f).translationY(0f).setDuration(260).start();
+            any = true;
+        }
+        if (any) Fonts.apply(container);
     }
 
     private int darker(int color) {

@@ -11,7 +11,13 @@
             android:textSize="22sp" android:textStyle="bold" />
         <TextView android:id="@+id/tvEmail" android:layout_width="match_parent"
             android:layout_height="wrap_content" android:layout_marginTop="4dp"
-            android:text="" android:textColor="#DAD7FE" android:textSize="13sp" />
+            android:text="" android:textColor="@color/header_sub" android:textSize="13sp" />
+        <TextView android:id="@+id/btnSwitchTrack" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="12dp"
+            android:background="@drawable/chip_header" android:paddingLeft="14dp"
+            android:paddingRight="14dp" android:paddingTop="7dp" android:paddingBottom="7dp"
+            android:text="🎯 اختار مسارك" android:textColor="@color/white"
+            android:textSize="13sp" android:textStyle="bold" />
     </LinearLayout>
 
     <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
@@ -29,7 +35,7 @@
                     android:layout_marginStart="12dp" android:layout_weight="1"
                     android:orientation="vertical">
                     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                        android:text="أكمل من حيث توقفت" android:textColor="#DAD7FE"
+                        android:text="أكمل من حيث توقفت" android:textColor="@color/header_sub"
                         android:textSize="12sp" />
                     <TextView android:id="@+id/tvContinueTitle" android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:layout_marginTop="2dp"
@@ -37,7 +43,7 @@
                         android:textStyle="bold" />
                     <TextView android:id="@+id/tvContinueSub" android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:layout_marginTop="2dp"
-                        android:textColor="#DAD7FE" android:textSize="12sp" />
+                        android:textColor="@color/header_sub" android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -83,8 +89,16 @@
                     android:textSize="22sp" android:textStyle="bold" />
             </LinearLayout>
 
+            <TextView android:id="@+id/tvMySubjectsHeader" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="20dp"
+                android:text="موادي في تانية ثانوي" android:textColor="@color/text"
+                android:textSize="17sp" android:textStyle="bold" android:visibility="gone" />
+            <LinearLayout android:id="@+id/layoutMySubjects" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="6dp"
+                android:orientation="vertical" android:visibility="gone" />
+
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:layout_marginTop="20dp" android:text="المسارات الأربعة"
+                android:layout_marginTop="20dp" android:text="كل المسارات والسنوات"
                 android:textColor="@color/text" android:textSize="17sp" android:textStyle="bold" />
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_marginTop="2dp" android:text="اختار مسارك وابدأ رحلتك في البكالوريا"

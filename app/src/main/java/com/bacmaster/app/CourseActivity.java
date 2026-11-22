@@ -54,7 +54,7 @@ public class CourseActivity extends Activity {
         yearId = getIntent().getStringExtra(EXTRA_YEAR_ID);
         subjectId = getIntent().getStringExtra(EXTRA_SUBJECT_ID);
         subjectName = getIntent().getStringExtra(EXTRA_SUBJECT_NAME);
-        subjectColor = getIntent().getIntExtra(EXTRA_SUBJECT_COLOR, 0xFF4338CA);
+        subjectColor = getIntent().getIntExtra(EXTRA_SUBJECT_COLOR, 0xFF0E7C61);
         String subjectEmoji = getIntent().getStringExtra(EXTRA_SUBJECT_EMOJI);
 
         findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
@@ -168,6 +168,8 @@ public class CourseActivity extends Activity {
         }
         final int d = done;
         final int t = total;
+        ((TextView) findViewById(R.id.tvProgress)).setText(
+                t == 0 ? "" : "أنهيت " + d + " من " + t + " درسًا");
         final View fill = findViewById(R.id.viewProgressFill);
         final View bar = (View) fill.getParent();
         bar.post(new Runnable() {

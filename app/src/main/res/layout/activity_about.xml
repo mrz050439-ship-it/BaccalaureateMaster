@@ -14,7 +14,7 @@
             android:textColor="@color/white" android:textSize="20sp" android:textStyle="bold" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="4dp" android:text="كل ما تحتاج تعرفه عن نظامك"
-            android:textColor="#DAD7FE" android:textSize="13sp" />
+            android:textColor="@color/header_sub" android:textSize="13sp" />
     </LinearLayout>
 
     <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">

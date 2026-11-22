@@ -45,7 +45,7 @@ public class Models {
         public final boolean countsInTotal;
         public final String note;
         public String emoji = "📚";
-        public int color = 0xFF4338CA;
+        public int color = 0xFF0E7C61;
 
         public Subject(String id, String name, int section, boolean countsInTotal, String note) {
             this.id = id;

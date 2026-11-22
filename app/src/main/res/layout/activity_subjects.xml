@@ -15,7 +15,7 @@
             android:textStyle="bold" />
         <TextView android:id="@+id/tvSubtitle" android:layout_width="match_parent"
             android:layout_height="wrap_content" android:layout_marginTop="4dp"
-            android:text="" android:textColor="#DAD7FE" android:textSize="13sp" />
+            android:text="" android:textColor="@color/header_sub" android:textSize="13sp" />
     </LinearLayout>
 
     <ListView android:id="@+id/listSubjects" android:layout_width="match_parent"

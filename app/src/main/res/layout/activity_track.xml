@@ -19,7 +19,7 @@
             android:textStyle="bold" />
         <TextView android:id="@+id/tvTrackSubtitle" android:layout_width="match_parent"
             android:layout_height="wrap_content" android:layout_marginTop="4dp"
-            android:text="اختار السنة الدراسية" android:textColor="#DAD7FE" android:textSize="13sp" />
+            android:text="اختار السنة الدراسية" android:textColor="@color/header_sub" android:textSize="13sp" />
     </LinearLayout>
 
     <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">

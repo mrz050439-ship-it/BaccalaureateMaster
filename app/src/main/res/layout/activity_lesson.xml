@@ -18,7 +18,7 @@
             android:textStyle="bold" />
         <TextView android:id="@+id/tvSubtitle" android:layout_width="match_parent"
             android:layout_height="wrap_content" android:layout_marginTop="4dp"
-            android:text="" android:textColor="#E8E6FF" android:textSize="13sp" />
+            android:text="" android:textColor="@color/header_sub" android:textSize="13sp" />
         <LinearLayout android:layout_width="match_parent" android:layout_height="4dp"
             android:layout_marginTop="12dp" android:background="@drawable/progress_bg"
             android:orientation="horizontal">
@@ -42,7 +42,7 @@
                 android:textColor="@color/text" android:textSize="15sp" android:textStyle="bold" />
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_marginTop="6dp" android:gravity="center"
-                android:text="اللغة العربية والفيزياء والكيمياء والتاريخ وعلم النفس (تانية ثانوي) متاحة الآن كاملة."
+                android:text="المواد المتاحة فيها محتوى كتاب الوزارة كاملًا، والباقي يُضاف تباعًا فور مراجعته."
                 android:textColor="@color/text_secondary" android:textSize="13sp" />
         </LinearLayout>
     </FrameLayout>

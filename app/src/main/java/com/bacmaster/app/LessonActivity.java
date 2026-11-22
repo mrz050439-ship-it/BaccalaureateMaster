@@ -57,7 +57,7 @@ public class LessonActivity extends Activity {
         lessonTitle = getIntent().getStringExtra(EXTRA_LESSON_TITLE);
         String subject = getIntent().getStringExtra(EXTRA_SUBJECT_NAME);
         contentPath = getIntent().getStringExtra(EXTRA_CONTENT_PATH);
-        int color = getIntent().getIntExtra(EXTRA_SUBJECT_COLOR, 0xFF4338CA);
+        int color = getIntent().getIntExtra(EXTRA_SUBJECT_COLOR, 0xFF0E7C61);
 
         GradientDrawable headerBg = new GradientDrawable(
                 GradientDrawable.Orientation.TL_BR,
@@ -248,7 +248,7 @@ public class LessonActivity extends Activity {
     }
 
     private void refreshCompleteButton(Button button) {
-        button.setText(done ? "✅ خلصت الدرس ده" : "✔ علّمها كمقروء");
+        button.setText(done ? "✅ أنهيت الدرس" : "✔ علّم الدرس كمكتمل");
     }
 
     private int darker(int color) {

@@ -31,7 +31,7 @@ public class WelcomeActivity extends Activity {
                     return;
                 }
                 SessionManager.get(WelcomeActivity.this).login(name, "", "", "", false);
-                startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, OnboardingActivity.class));
                 finish();
             }
         });
