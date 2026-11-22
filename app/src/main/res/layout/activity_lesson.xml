@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg">
+
+    <LinearLayout android:id="@+id/headerLesson" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:background="@drawable/bg_header"
+        android:orientation="vertical"
+        android:paddingLeft="20dp" android:paddingRight="20dp"
+        android:paddingTop="20dp" android:paddingBottom="16dp">
+        <TextView android:id="@+id/btnBack" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="12dp"
+            android:padding="6dp" android:text="→ رجوع" android:textColor="@color/white"
+            android:textSize="15sp" android:textStyle="bold" />
+        <TextView android:id="@+id/tvTitle" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="8dp"
+            android:text="" android:textColor="@color/white" android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView android:id="@+id/tvSubtitle" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="4dp"
+            android:text="" android:textColor="#E8E6FF" android:textSize="13sp" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="4dp"
+            android:layout_marginTop="12dp" android:background="@drawable/progress_bg"
+            android:orientation="horizontal">
+            <View android:id="@+id/viewReadProgress" android:layout_width="0dp"
+                android:layout_height="match_parent" android:background="@drawable/progress_bg" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+        <WebView android:id="@+id/webPages" android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <LinearLayout android:id="@+id/emptyView" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:gravity="center"
+            android:orientation="vertical" android:padding="32dp" android:visibility="gone">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📚" android:textSize="44sp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:gravity="center"
+                android:text="محتوى هذا الدرس يُضاف تباعًا من كتاب الوزارة الرسمي."
+                android:textColor="@color/text" android:textSize="15sp" android:textStyle="bold" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:gravity="center"
+                android:text="اللغة العربية والفيزياء والكيمياء والتاريخ وعلم النفس (تانية ثانوي) متاحة الآن كاملة."
+                android:textColor="@color/text_secondary" android:textSize="13sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:padding="12dp">
+        <Button android:id="@+id/btnComplete" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:background="@drawable/button_primary" android:text="✔ علّمها كمقروء"
+            android:textColor="@color/white" android:textSize="14sp" android:textStyle="bold" />
+        <Button android:id="@+id/btnDownload" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/button_outline" android:text="⬇ تحميل الملزمة PDF"
+            android:textColor="@color/primary" android:textSize="14sp" android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

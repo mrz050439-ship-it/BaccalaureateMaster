@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg">
+
+    <LinearLayout android:id="@+id/headerTrack" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:background="@drawable/bg_header"
+        android:orientation="vertical" android:padding="20dp">
+        <TextView android:id="@+id/btnBack" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="12dp"
+            android:padding="6dp" android:text="→ رجوع" android:textColor="@color/white"
+            android:textSize="15sp" android:textStyle="bold" />
+        <TextView android:id="@+id/tvTrackEmoji" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="10dp"
+            android:text="🎓" android:textSize="44sp" />
+        <TextView android:id="@+id/tvTrackTitle" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="8dp"
+            android:text="" android:textColor="@color/white" android:textSize="22sp"
+            android:textStyle="bold" />
+        <TextView android:id="@+id/tvTrackSubtitle" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="4dp"
+            android:text="اختار السنة الدراسية" android:textColor="#DAD7FE" android:textSize="13sp" />
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:id="@+id/layoutYears" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp" />
+    </ScrollView>
+</LinearLayout>

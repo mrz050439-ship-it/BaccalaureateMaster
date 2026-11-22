@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@drawable/card_white" android:gravity="center_vertical"
+    android:orientation="horizontal" android:padding="12dp">
+
+    <TextView android:id="@+id/tvNumber" android:layout_width="38dp"
+        android:layout_height="38dp" android:gravity="center"
+        android:text="1" android:textColor="@color/white"
+        android:textSize="15sp" android:textStyle="bold" />
+
+    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_marginStart="12dp" android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvLessonTitle" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textColor="@color/text"
+            android:textSize="15sp" android:textStyle="bold" />
+        <TextView android:id="@+id/tvLessonMeta" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="3dp"
+            android:textColor="@color/text_secondary" android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView android:id="@+id/tvStatus" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="📖" android:textSize="18sp" />
+
+    <TextView android:id="@+id/tvStar" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_marginStart="6dp"
+        android:padding="6dp" android:text="☆" android:textSize="22sp"
+        android:textColor="@color/accent" android:textStyle="bold" />
+</LinearLayout>

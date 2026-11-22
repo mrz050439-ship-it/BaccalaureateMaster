@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="@drawable/bg_header" android:orientation="vertical" android:padding="20dp">
+        <TextView android:id="@+id/tvGreeting" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="16dp"
+            android:text="أهلاً بك 👋" android:textColor="@color/white"
+            android:textSize="22sp" android:textStyle="bold" />
+        <TextView android:id="@+id/tvEmail" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="4dp"
+            android:text="" android:textColor="#DAD7FE" android:textSize="13sp" />
+    </LinearLayout>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="14dp">
+
+            <LinearLayout android:id="@+id/cardContinue" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:background="@drawable/bg_header"
+                android:gravity="center_vertical" android:orientation="horizontal"
+                android:padding="16dp" android:visibility="gone">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="▶️" android:textSize="26sp" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp" android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="أكمل من حيث توقفت" android:textColor="#DAD7FE"
+                        android:textSize="12sp" />
+                    <TextView android:id="@+id/tvContinueTitle" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                        android:textColor="@color/white" android:textSize="15sp"
+                        android:textStyle="bold" />
+                    <TextView android:id="@+id/tvContinueSub" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                        android:textColor="#DAD7FE" android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:background="@drawable/card_white"
+                    android:gravity="center" android:orientation="vertical" android:padding="14dp">
+                    <TextView android:id="@+id/tvStatsDone" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0"
+                        android:textColor="@color/primary" android:textSize="22sp"
+                        android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="📖 درس مكتمل" android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp" android:layout_weight="1"
+                    android:background="@drawable/card_white" android:gravity="center"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:id="@+id/tvStatsFav" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0"
+                        android:textColor="@color/accent" android:textSize="22sp"
+                        android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="⭐ درس مفضل" android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/bannerAbout" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="12dp"
+                android:background="@drawable/card_white" android:gravity="center_vertical"
+                android:orientation="horizontal" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🎓" android:textSize="22sp" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp" android:layout_weight="1"
+                    android:text="جديد على البكالوريا؟ افهم النظام كله في دقيقة"
+                    android:textColor="@color/text" android:textSize="14sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="‹" android:textColor="@color/text_secondary"
+                    android:textSize="22sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" android:text="المسارات الأربعة"
+                android:textColor="@color/text" android:textSize="17sp" android:textStyle="bold" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" android:text="اختار مسارك وابدأ رحلتك في البكالوريا"
+                android:textColor="@color/text_secondary" android:textSize="13sp" />
+
+            <LinearLayout android:id="@+id/gridTracks" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="10dp"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="@color/white" android:orientation="horizontal"
+        android:padding="4dp" android:elevation="8dp">
+        <TextView android:id="@+id/btnHome" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:gravity="center" android:padding="12dp"
+            android:text="🏠 الرئيسية" android:textColor="@color/primary"
+            android:textSize="13sp" android:textStyle="bold" />
+        <TextView android:id="@+id/btnAboutNav" android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center"
+            android:padding="12dp" android:text="🎓 النظام" android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+        <TextView android:id="@+id/btnLogout" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:gravity="center" android:padding="12dp"
+            android:text="✏️ الاسم" android:textColor="@color/text_secondary" android:textSize="13sp" />
+    </LinearLayout>
+</LinearLayout>

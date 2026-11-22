@@ -1,0 +1,5 @@
+// Top-level build file: declares plugin versions only.
+// CodeAssist reads this file statically (it does not run Gradle), so keep it declarative.
+plugins {
+    id 'com.android.application' version '8.5.2' apply false
+}
